@@ -1,9 +1,12 @@
 package BinaryTrees;
+import Json.*;
 
 public class AVL_Node {
+	//Attributes
 	AVL_Node left, right;
 	String data;
 	int height;
+	//Constructors
 	public AVL_Node () {
 		left = null;
 		right = null;
@@ -16,6 +19,7 @@ public class AVL_Node {
 		data = n;
 		height = 0;
 	}
+	//Getters and Setters
 	public AVL_Node getLeft() {
 		return left;
 	}
@@ -40,6 +44,7 @@ public class AVL_Node {
 	public void setHeight(int height) {
 		this.height = height;
 	}
+	//Function which turns a string into the ASCII character
 	public int[] toASCII() {
 		char[] character = data.toCharArray();
 		int[] ascii = new int[data.length()];

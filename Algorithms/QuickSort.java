@@ -1,27 +1,20 @@
 package Algorithms;
-import java.util.Arrays;
 import BinaryTrees.*;
 
 public class QuickSort {
+	//Attributes
 	private static int[] myArray;
 	private static int arraySize;
 	public static void main(String[] args) {
 		QuickSort theSort = new QuickSort(10);
-		theSort.generateRandomArray();
-		System.out.println(Arrays.toString(QuickSort.myArray));
 		theSort.quickSort(0, 9);
-		System.out.println(Arrays.toString(QuickSort.myArray));
 	}
+	//Constructor
 	QuickSort (int newArraySize) {
 		arraySize = newArraySize;
 		myArray = new int [arraySize];
-		generateRandomArray();
 	}
-	public void generateRandomArray() {
-		for (int i = 0; i < arraySize; i++) {
-			myArray [i] = (int)(Math.random() * 50) + 10;
-		}
-	}
+	//Partitions the array and sets a pivot
 	public int partitionArray (int left, int right, int pivot) {
 		int leftPointer = left -1;
 		int rightPointer = right;
@@ -44,11 +37,13 @@ public class QuickSort {
 		swapValues (leftPointer, right);
 		return leftPointer;
 	}
+	//Swaps the values of an array by comparing them
 	public void swapValues (int IndexOne, int IndexTwo) {
 		int temp = myArray [IndexOne];
 		myArray [IndexOne] = myArray [IndexTwo];
 		myArray [IndexTwo] = temp;
 	}
+	//Prints the arrays
 	static void printHorzArray (int i, int j) {
 		for (int n = 0; n < 61; n++) {
 			System.out.print("-");
@@ -84,6 +79,7 @@ public class QuickSort {
 			System.out.println("\n");
 		}
 	}
+	//Performs the QuickSort algorithm
 	public void quickSort (int left, int right) {
 		if (right - left <= 0) {
 			return;

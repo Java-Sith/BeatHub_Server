@@ -1,6 +1,7 @@
 package BinaryTrees;
 
 public class ASCII {
+	//Attributes
 	private String input;
 	private static ASCII instance;
 	public static void main (String args[]) {
@@ -14,6 +15,7 @@ public class ASCII {
 	private ASCII() {
 		
 	}
+	//Getters and Setters
 	public String getInput() {
 		return input;
 	}
@@ -29,7 +31,7 @@ public class ASCII {
 	public static void setInstance(ASCII instance) {
 		ASCII.instance = instance;
 	}
-
+	//Returns an instance of ASCII
 	public static ASCII getInstance(String input) {
 		if (instance == null) {
 			instance = new ASCII();
@@ -37,6 +39,7 @@ public class ASCII {
 		instance.setInput(input);
 		return instance;
 	}
+	//Turns a string into an ASCII character
 	public int[] toASCII() {
 		char[] character = input.toCharArray();
 		int[] ascii = new int[input.length()];

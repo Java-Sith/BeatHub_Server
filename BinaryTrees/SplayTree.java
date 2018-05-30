@@ -1,17 +1,23 @@
 package BinaryTrees;
+import Json.*;
 
 public class SplayTree {
+	//Attributes
 	private SplayNode root;
 	private int count = 0;
+	//Constructor function
 	public SplayTree () {
 		root = null;
 	}
+	//Checks if tree is empty
 	public boolean isEmpty () {
 		return root == null;
 	}
+	//Empties the tree
 	public void clear () {
 		root = null;
 	}
+	//Inserts a node in the tree
 	public void insert (SplayNode e) {
 		SplayNode z = root;
 		SplayNode p = null;
@@ -34,6 +40,7 @@ public class SplayTree {
         Splay(z);
         count++;
     }
+	//Moves the left child to be the parent node
     public void makeLeftChildParent(SplayNode c, SplayNode p) {
         if ((c == null) || (p == null) || (p.left != c) || (c.parent != p))
             throw new RuntimeException("WRONG");
@@ -50,6 +57,7 @@ public class SplayTree {
         p.left = c.right;
         c.right = p;
     }
+	//Moves the right child to be the parent node
     public void makeRightChildParent(SplayNode c, SplayNode p)
     {
         if ((c == null) || (p == null) || (p.right != c) || (c.parent != p))
@@ -68,6 +76,7 @@ public class SplayTree {
         p.right = c.left;
         c.left = p;
     }
+    //Performs the splay balancing operation
     private void Splay(SplayNode x) {
         while (x.parent != null) {
             SplayNode Parent = x.parent;
@@ -99,10 +108,12 @@ public class SplayTree {
         }
         root = x;
     }
+    //Removes a node
     public void remove(SplayNode e) {
         SplayNode node = find(e);
        delete(node);
     }
+    //Performs the function to remove a node in the tree
     private void delete(SplayNode node) {
         if (node == null)
             return;
@@ -133,12 +144,15 @@ public class SplayTree {
         node = null;
         count--;
     }
+    //Counts the nodes currently on tree
     public int countNodes() {
         return count;
     }
+    //Checks if a node is in the tree
     public boolean contains (SplayNode e) {
     	return find (e) != null;
     }
+    //Performs the function to find a node
     private SplayNode find(SplayNode e) {
         SplayNode z = root;
         while (z != null)
@@ -152,9 +166,11 @@ public class SplayTree {
         }
         return null;
     }
+    //Orders the tree
     public void inorder() {
         inorder(root);
     }
+    //Performs the inorder function
     private void inorder(SplayNode r) {
         if (r != null) {
             inorder(r.left);
@@ -162,9 +178,11 @@ public class SplayTree {
             inorder(r.right);
         }
     }
+    //Orders the tree
     public void preorder() {
         preorder(root);
     }
+    //Performs the preorder function
     private void preorder(SplayNode r) {
         if (r != null) {
             System.out.print(r.element +" ");
@@ -172,9 +190,11 @@ public class SplayTree {
             preorder(r.right);
         }
     }
+    //Orders the tree
     public void postorder() {
         postorder(root);
     }
+    //Performs the postorder function
     private void postorder(SplayNode r) {
         if (r != null) {
             postorder(r.left);             
@@ -182,12 +202,14 @@ public class SplayTree {
             System.out.print(r.element +" ");
         }
     }
+    //Turns the tree into an array
 	public int[] toBSTArray () {
 		int size = count;
 		int[] Array = new int [size];
 		toArray(root, Array, 0);
 		return Array;
 	}
+	//Performs the operation which turns nodes into array[]
 	private int toArray (SplayNode n, int[] Array, int i) {
 		if (n.getLeft() != null) {
 			i = toArray (n.getLeft(), Array, i);

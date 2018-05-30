@@ -1,8 +1,11 @@
 package BinaryTrees;
+import Json.*;
 
 public class SplayNode {
+	//Attributes
 	SplayNode left, right, parent;
 	String element;
+	//Constructors
 	public SplayNode () {
 		this (null, null, null, null);
 	}
@@ -15,6 +18,7 @@ public class SplayNode {
 		this.parent = parent;
 		this.element = ele;
 	}
+	//Getters and Setters
 	public SplayNode getLeft() {
 		return left;
 	}
@@ -39,6 +43,7 @@ public class SplayNode {
 	public void setElement(String element) {
 		this.element = element;
 	}
+	//Function which turns a string into the ASCII character
 	public int[] toASCII() {
 		char[] character = element.toCharArray();
 		int[] ascii = new int[element.length()];

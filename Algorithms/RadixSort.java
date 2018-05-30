@@ -2,6 +2,7 @@ package Algorithms;
 import BinaryTrees.*;
 
 public class RadixSort {
+	//Performs the RadixSort algorithm
 	public static void radixSort (int[] a) {
 		int i, m = a[0], exp = 1, n = a.length;
 		int[] b = new int[10];
@@ -27,6 +28,7 @@ public class RadixSort {
 			exp *= 10;
 		}
 	}
+	//Prints the array
 	public static void printArray(int[] array) {
 		for (int i = 0; i < array.length; i++) {
 			System.out.println(array[i] + " ");
